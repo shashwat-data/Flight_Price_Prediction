@@ -6,8 +6,8 @@ This project aims to build an accurate and generalizable regression model to pre
 
 ## Features
 
-- Data preprocessing and exploration (assumed)
-- Implementation of multiple tree-based regression models
+- Data preprocessing and exploration.
+- Implementation of multiple tree-based and distance-based regression models
 - Hyperparameter tuning using RandomizedSearchCV with cross-validation
 - Model evaluation using metrics: MAE, MSE, RMSE, and R² score
 - Final prediction on test data without the target price column
@@ -40,8 +40,12 @@ Install the dependencies using pip:
 1. Load and preprocess your training and testing datasets.
 2. Define your tree-based models and hyperparameter grids.
 3. Run the provided hyperparameter tuning script which performs randomized search with cross-validation.
-4. Evaluate model performance on training and test data.
+4. Evaluate model performance on training dataset.
 5. Use the recommended Random Forest Regressor model to make final price predictions.
+
+## Insights
+
+"During the Exploratory Data Analysis (EDA) phase, we uncovered numerous valuable insights that have been thoroughly documented alongside nearly every visualization throughout the project. We highly encourage reviewing these detailed observations to gain a comprehensive understanding of the data’s characteristics, trends, and relationships that informed our modeling approach." 
    
 ## Results
 
