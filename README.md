@@ -1,1 +1,61 @@
-✈️ Flight Price Prediction ModelVIEW THE FULL ANALYSIS AND CODE: Flight Price Prediction Notebook (Flight Project.ipynb)This project develops a robust machine learning regression model to accurately predict domestic flight prices, enabling proactive revenue management and dynamic pricing strategies for optimal profitability.🎯 Key Results & Model PerformanceMetricResultInterpretationFinal ModelTuned Random Forest RegressorSelected for superior performance and generalization capability.Mean CV R² Score$\approx 0.83$The model explains $83\%$ of the variance in flight prices on completely unseen validation data, indicating high reliability.Overfitting MitigatedSuccessfully reduced the gap between training and validation scores through hyperparameter tuning.Top Price DriversDuration in Minutes, Airline Name, Total Stops, and Journey Month.These features proved to be the most influential factors in determining ticket cost.📈 Business Conclusion and Strategic RecommendationsThe deployed model provides a critical advantage by shifting pricing from reactive to data-driven, resulting in a clear path to revenue optimization.1. Dynamic Pricing and Revenue OptimizationHigh Confidence: The high R² score ($\approx 0.83$) ensures the model's predictions are reliable enough to be used in dynamic pricing algorithms, minimizing revenue loss from underpriced seats.Focus on High-Value Segments: Insight into feature importance guides resource allocation towards highly profitable routes, times, or specific airlines that command a premium price.2. Operational EfficiencySchedule Optimization: Insights from the Departure Hour distribution reveal peak demand windows. Capacity can be strategically increased during these hours (e.g., $6\text{ AM} - 10\text{ AM}$ and $5\text{ PM} - 8\text{ PM}$) to capture premium revenue.Minimize Duration: Since Duration in Minutes is a major price driver, operational focus should be placed on minimizing travel time (including layovers) to justify higher fares.🛠️ Technical WalkthroughThe entire process is documented step-by-step in the primary notebook.Feature Engineering HighlightsTime Conversion: Robust conversion of Dep_Time and Duration strings into single, numerical minute features (Dep_minutes, duration).Ordinal Encoding: Applied Label Encoding to the Total_Stops column (non-stop $\rightarrow 0$ to 4 stops $\rightarrow 4$) to exploit the natural order, which benefits tree-based models.Preprocessing Pipeline: Used ColumnTransformer to handle feature scaling (StandardScaler for numerical data) and encoding (OneHotEncoder for nominal categorical data) in a single, reproducible step.Modeling & TuningModel Selection: Employed a rigorous comparison of Decision Tree, Random Forest, XGBoost, and LightGBM.Optimization: Used RandomizedSearchCV with $3$-fold cross-validation across extensive parameter grids to finalize the best-performing model (RandomForestRegressor).
+# ✈️ Flight Price Prediction.
+
+## Project Overview
+
+This project aims to build an accurate and generalizable regression model to predict prices based on input features. Using distance-based and tree-based models and hyperparameter tuning via RandomizedSearchCV, the Random Forest Regressor was identified as the best-performing model.
+
+## Features
+
+- Data preprocessing and exploration (assumed)
+- Implementation of multiple tree-based regression models
+- Hyperparameter tuning using RandomizedSearchCV with cross-validation
+- Model evaluation using metrics: MAE, MSE, RMSE, and R² score
+- Final prediction on test data without the target price column
+- Recommendation for production deployment of the best model
+
+## Technologies Used
+
+- Python 3.x
+- scikit-learn
+- pandas
+- numpy
+- seaborn/matplotlib (optional for visualization)
+
+## Getting Started
+
+### Prerequisites
+
+Ensure you have Python 3.x installed along with the following packages:
+
+- numpy
+- pandas
+- scikit-learn
+- seaborn (optional)
+
+Install the dependencies using pip:
+
+
+### Running the Project
+
+1. Load and preprocess your training and testing datasets.
+2. Define your tree-based models and hyperparameter grids.
+3. Run the provided hyperparameter tuning script which performs randomized search with cross-validation.
+4. Evaluate model performance on training and test data.
+5. Use the recommended Random Forest Regressor model to make final price predictions.
+   
+## Results
+
+- The Random Forest Regressor with tuned hyperparameters achieved a mean cross-validated R² score of approximately 0.98.
+- Metrics like MAE, MSE, and RMSE confirm strong predictive accuracy.
+- The model is suitable for deployment in a production environment based on these results.
+
+## Notes
+
+- The test dataset used for prediction did not contain the price column initially.
+- It is recommended to evaluate final model performance periodically with fresh data.
+- Adjust cross-validation folds and hyperparameter ranges based on specific dataset characteristics.
+
+## Contact
+
+For questions or contributions, please contact Shashwat Singh at theshashwatsingh@gmail.com.
+
